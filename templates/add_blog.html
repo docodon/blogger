@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block block1 %}
+<html>
+<head><title>WRITE YOUR BLOG</title></head>
+<body>
+
+
+<form method='post' action={% url 'add_blog' %}  >
+<div class="form-group">
+{% csrf_token %}
+ 
+<!-- {{  form.as_p }}  -->
+
+<div class="form-group">
+<p><label for="id_title">Title:</label>
+<input id="id_title" name="title" type="text" class="form-control" /></p>
+</div>
+
+
+<div class="form-group">
+<label for="id_blog">Blog:</label>
+ <textarea cols="40" id="id_blog" name="blog" rows="10" class="form-control"></textarea></p>
+
+</div>
+
+<input type="submit" value="Proceed"  class="btn btn-default" />
+</form>
+
+{% if error %}
+	{{ error }}
+{% endif %}
+
+</body>
+
+{% endblock %}

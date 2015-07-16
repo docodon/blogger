@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<b><u><p>BLOGS</p></u></b>
+{% for p in posts %}
+<b>{{ p.title }}</b>
+<p>
+written by {{ p.author.name }} on {{ p.date }} {{ p.body }}
+
+{% endfor %}
+</p>
+
+<p>
+<a href="{% url 'add_blog' %}">add a blog</a>
+</p>
+
+</html>

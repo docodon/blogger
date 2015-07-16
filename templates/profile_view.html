@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block block1 %}
+
+<div class="container">
+<p>
+	<p><b><i> Profile for  {{ handle }} </i></b> </p>
+	</br>
+
+	<img src="{{ image.url }}" height='120px' width='120px'></br>
+	</br>
+	<b>Details :</b> 
+	</br>
+	<b>{{ name }}</b></br>
+	<b>{{ email }}</b> </br>
+
+</p>
+</div>
+
+</br>
+
+<strong><p style="margin-left:35px;">Blogs by {{ handle }} : </p></strong>
+
+</br> </br> 
+
+{% for i in blogs %}
+<div class="span8" style="margin-left:35px; border-radius:15px 50px 30px 5px; padding:20px; border-style:solid; border-width:5px;">
+{{ i.title }}
+</br>
+{{ i.body|safe }}
+</div>
+</br></br>
+{% endfor %}
+</p>
+
+{% endblock %} 
