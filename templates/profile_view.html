@@ -3,35 +3,38 @@
 
 {% block block1 %}
 
-<div class="container">
-<p>
-	<p><b><i> Profile for  {{ handle }} </i></b> </p>
-	</br>
+		<h3 style="color:green;margin-left:90px;margin-top:25px;">{{ author.user.first_name }} {{ author.user.last_name }} </h3> 
 
-	<img src="{{ image.url }}" height='120px' width='120px'></br>
-	</br>
-	<b>Details :</b> 
-	</br>
-	<b>{{ name }}</b></br>
-	<b>{{ email }}</b> </br>
+<div id="container" style="margin-top:50px;margin-left:70px;margin-right:30px;min-height:400px;border:1px solid red">
 
-</p>
+<div id="profil4" style="float:left;border:1px solid red;width:35%;min-height:400px;padding:30px;">
+	
+	</br>
+	{% if author.image %}
+	<img src="{{ author.image.url }}" height='120px' width='120px'></br>
+	{% endif %}
+	</br>
+	<p style="display:inline;">Contact me:
+	<p style="display:inline;color:orange;">{{ author.user.email }}</p>
+	</p>
+
+	<p style="display:inline;">My handle:
+	<p style="display:inline;color:orange;">{{ author.handle }}</p>
+	</p>
+
+	
 </div>
 
-</br>
 
-<strong><p style="margin-left:35px;">Blogs by {{ handle }} : </p></strong>
+<div id="blogs" style="float:right;border:1px solid red;width:60%;min-height:400px;padding:30px;margin-right:50px;">
+<h4 style="margin-left:25px;">Blogs by me :</h4> 
+ <ul >
+	{% for i in blogs %}
+		<li><a href="/blogs/read_blog/{{ i.slug }}">{{ i.title }}</a></li>
+	{% endfor %}
+</ul>
 
-</br> </br> 
-
-{% for i in blogs %}
-<div class="span8" style="margin-left:35px; border-radius:15px 50px 30px 5px; padding:20px; border-style:solid; border-width:5px;">
-{{ i.title }}
-</br>
-{{ i.body|safe }}
 </div>
-</br></br>
-{% endfor %}
-</p>
 
+</div>
 {% endblock %} 

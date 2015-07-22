@@ -7,7 +7,7 @@
 <head><title>WRITE YOUR BLOG</title></head>
 <body>
 
-
+<div id="add_blog" style="margin-left:50px;margin-right:50px;margin-top:50px;">
 <form method='post' action={% url 'add_blog' %}  >
 <div class="form-group">
 {% csrf_token %}
@@ -22,7 +22,7 @@
 
 <div class="form-group">
 <label for="id_blog">Blog:</label>
- <textarea cols="40" id="id_blog" name="blog" rows="10" class="form-control"></textarea></p>
+ <textarea cols="50" id="id_blog" name="blog" rows="20"></textarea>
 
 </div>
 
@@ -32,6 +32,7 @@
 {% if error %}
 	{{ error }}
 {% endif %}
+</div>
 
 </body>
 

@@ -101,12 +101,16 @@ def search_user(request) :
 def profile_view(request,aut) :
 	if aut :
 		ret=Author.objects.get(handle=aut)
-		detail={'handle':ret.handle,'name':ret.user.first_name+'  '+ret.user.last_name,'email':ret.user.email,}
-		if ret.image :
-			detail['image']=ret.image
 		blg=Post.objects.filter(author=ret)
-		blog=dict()
-		for i in blg :
-			blog[i.title]=i.body
-		detail['blogs']=blg
-		return render(request,'profile_view.html',detail)
+		return render(request,'profile_view.html',{'blogs':blg,'author':ret})
+
+
+def read_blog(request,blg) :
+	if blg:
+		blog=Post.objects.get(slug=blg)
+		return render(request,'read_blog.html',{'blog':blog})	
+	else :
+		return index(request)
+
+def contact(request) :
+	return render(request,'contact.html',{})

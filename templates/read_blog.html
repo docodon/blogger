@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block block1 %}
+
+<title>{{ blog.title }}</title>
+
+	<h3 style="margin-left:40px ; color:orange"><b> {{ blog.title }} </b> </h3>
+			<p style="display:inline ; margin-left:100px ; "> &nbsp; &nbsp; &nbsp; &nbsp; 
+			by	<p style="color:red ; display:inline">{{ blog.author.handle }} </p>
+			 		on  <p style="color:red ; display:inline">{{ blog.date }}</p>
+			</p>
+
+<div id="blog_body" style="margin-left:20px;margin-top:50px;border:0px solid #D3D3D3;margin-right:20px;padding:15px;">
+<p>
+{{ blog.body|safe }}
+</p>
+</div>
+
+{% endblock %}

@@ -10,6 +10,7 @@
 
 <body>
 
+<div id="login" style="margin-left:150px;margin-right:150px;margin-top:150px;">
 <form id="form" method="post" action={% url 'login' %}>
 
 {% csrf_token %}
@@ -45,6 +46,8 @@
 
 </form>
 
+
+
 	<p style="color: red;">
 
 	{% if error %}
@@ -56,6 +59,7 @@
 	</p> 
 
 
+</div>
 
 </body>
 

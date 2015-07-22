@@ -9,6 +9,8 @@ urlpatterns = patterns('',
     url(r'^login/$',views.login_user,name='login'),
     url(r'^logout/$',views.logout_user,name='logout'),
     url(r'^search/$',views.search_user,name='search'),
-    url(r'^profile/$',views.profile_view,name='profile')
+    url(r'^profile/$',views.profile_view,name='profile'),
+    url(r'^read_blog/(?P<blg>[\w\-]+)$',views.read_blog,name='read_blog'),
+    url(r'^contactme/$',views.contact,name='contact'),
 )
 

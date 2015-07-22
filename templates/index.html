@@ -4,21 +4,31 @@
 
 {% block block1 %}
 
-<b><u><p>BLOGS</p></u></b>
+<p style="color:orange; margin-left:30px;"><b><u>LIST OF BLOGS</u></b></p>
 
-{% for p in posts %}
-<div class="span8" style="margin-left:35px; border-radius:15px 50px 30px 5px; padding:20px; border-style:solid; border-width:5px;">
-<b>{{ p.title }}</b>
-<p>
-{{ p.body|safe }}
+<div id="list_of_blogs" style="margin-left:30px;margin-top:30px;">
+
+	<ul>
+		{% for p in posts %}
+		<li>	
+			<b><a href="/blogs/read_blog/{{ p.slug }}">{{ p.title }} </a></b>
+			  	<p>
+			  		<p style="display:inline"> &nbsp; &nbsp; &nbsp; &nbsp; 
+			 		by	<p style="color:red ; display:inline">{{ p.author.handle }} </p>
+			 		on  <p style="color:red ; display:inline">{{ p.date }}</p> 			
+					</p>
+				</p>
+		</li>
+</br>
+		{% endfor %}
+	</ul>
 
 </div>
-</br></br></br></br>
-{% endfor %}
-</p>
 
-<p>
-<a href="{% url 'add_blog' %}">add a blog</a>
+</br></br></br></br>
+
+<p style="color:orange;margin-left:30px">
+<b><u><a style="color:orange" href="{% url 'add_blog' %}">add a blog</a></u></b>
 </p>
 
 {% endblock %}
